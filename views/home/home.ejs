@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_434019_4kouudweonryhkt9.css"> 
+ <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+ <style>
+     body{
+         background:url('http://img4.imgtn.bdimg.com/it/u=4190288657,3305163369&fm=27&gp=0.jpg') no-repeat ;
+         background-size:100%;
+     }
+     #ifList{
+         background: #fff;
+     }
+ </style>
+</head>
+<body >
+    <h3 class="header">后台管理系统</h3>
+    <nav class="top-nav">
+        <ul>
+            <li>
+                <a href="#">起始页</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- <div class="content clearfix" > -->
+        <div class="left-nav">
+            <h3>导航菜单</h3>
+            <ul class="nav-list">
+                <li class="priduct">
+                    <a  href="javascript:;" class="show"><span class="iconfont icon-wenjian show-product"></span>商品管理<span class="iconfont icon-more" id="lower"></span></a> 
+                    <ul class="list">
+                        <li>
+                            <a href="/ifList"  class="add-list"  target="ifList">商品列表</a>
+
+                            <!-- location.reload()
+                             
+                            -->
+                        </li>
+                        <li>
+                            <a href="/hol" class="add-class" target="ifList"> 添加商品分类</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+<iframe src="" frameborder="0" id="ifList" name="ifList" width="100%" height="360px"></iframe>
+</body>
+</html>
+<script src="js/list.js"></script>
+<script src="js/home.js"></script>
+<script>
+$(function(){
+    // 切换商品分类和商品列表
+    $(".show").click(function(e){
+        if($(".list").css("display")=="none"){
+           $("#lower").removeAttr("class", "iconfont icon-more").attr("class", "iconfont icon-moreunfold")
+            $(".list").show() 
+        }else{
+           $("#lower").removeAttr("class", "iconfont icon-moreunfold").attr("class","iconfont icon-more");
+           $(".list").hide();
+        }
+    })
+    // 添加商品分类
+    // 商品分类的导航
+    $(".add-nav ul li").click(function(){
+        var  _index = $(this).index()
+        // console.log($(this).index())
+        $(this).siblings().children("a").removeClass("active")
+        // content的显示和隐藏
+        $(".bable").hide().eq(_index).show()
+        $(this).children("a").attr("class",'active').siblings().removeClass("active")
+    })
+    // 问号的点击事件
+    $(".add-wenhao").click(function(){
+        if($(this).parent().siblings().children("p").css("display") == "none"){
+            $(this).parent().siblings().children("p").show()
+        }else{
+            $(this).parent().siblings().children("p").hide()
+        }
+    })
+// input添加分类的显示和隐藏
+    // $(".goods-show").click(function(){
+    //     $(".add-opction-class").show()
+    // })
+    // $(".add-hide").click(function(){
+    //     $(".add-opction-class").hide()
+    // })
+    // 商品相册 点击创建
+    $(".increase").click(function(){
+        var str = `<div class="add-content-left">
+                        <div>
+                            <a href="javascript:;" class="increaseL" >[-]</a>图片描述
+                            <input type="text">
+                            上传文件
+                            <input type="file">
+                        </div>
+                        <div class="htps">
+                            <input type="text">
+                        </div>
+                    </div>`
+        $(".create").append(str);
+    })
+    $(".create").on("click",".increaseL",function () {
+        $(this).parents(".add-content-left").remove()
+    })
+    // 添加商品的ajax请求
+})
+    function subAjax() {
+        $.ajax({
+            url: '/api/list',
+            type: "get",
+            data: {
+                pName: $(".pName").val(),
+                pCode: $(".pCode").val(),
+                // pClass:$(".pClass").val(),
+                Pclass: "name",
+                pBrand: $(".pBrand").val(),
+                pPrice: $(".pPrice").val()
+            },
+            success: function (res) {
+                console.log(res)
+
+            }
+        })
+    }
+    
+</script>

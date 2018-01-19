@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_434019_4kouudweonryhkt9.css">
+</head>
+<body>
+   
+    <div class="content-right ">
+        <h3 class="h3">
+            <input type="text" class="sousuo-txt" >
+            <button class="btn-sousuo" onclick="vagueAjax()">搜索</button>
+        </h3>
+        <div class="right">
+            <div id="list-div">
+                <table>
+                    <tbody>
+                        <tr class="lk">
+                            <th>
+                                <input type="checkbox">
+                                <a href="javascript:;">编号</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">商品名称</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">货号</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">价格</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">上架</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">精品</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">新品</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">热销</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">推荐排序</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">库存</a>
+                            </th>
+                            <th>
+                                <a href="javascript:;">虚拟销量</a>
+                            </th>
+                            <th class="bt">
+                                <a href="javascript:;">操作</a>
+                            </th>
+                        </tr>
+                        <!-- <tr>
+                            <td>
+                                <input type="checkbox">
+                                <a href="javascript:;">150</a>
+                            </td>
+                            <td>
+                                <span class="commodityName">商品名称</span>
+                            </td>
+                            <td class="">
+                                <span>ECS000150</span>
+                            </td>
+                            <td>
+                                <span>0.99</span>
+                            </td>
+                            <td>
+                                <a href="#">X</a>
+                            </td>
+                            <td>
+                                <a href="#">√</a>
+                            </td>
+                            <td>
+                                <a href="#">√</a>
+                            </td>
+                            <td>
+                                <a href="#">√</a>
+                            </td>
+                            <td>
+                                <span>100</span>
+                            </td>
+                            <td>
+                                <span>1</span>
+                            </td>
+                            <td>
+                                <span>0</span>
+                            </td> -->
+                            <!-- <td class="bt"> -->
+                                <!-- <a href="#" class="iconfont icon-sousuo tubiao" title="搜索"></a> -->
+                                <!-- <a href="/hol" class="iconfont icon-79 tubiao " onclick="editAjax()" title="编辑"></a> -->
+                                <!-- <a href="#" class="iconfont icon-qunfengfuzhi tubiao" title="复制"></a> -->
+                                <!-- <a href="#" class="iconfont icon-qunfengshanchuxian tubiao" title="删除" onclick="removeAjax()"></a>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="paging">
+            <div class="paging-box">
+                 总计 <span class="cont"></span> 个记录分为 <span class="cont"></span> 页当前第 <span class="page">0</span> 页每页
+                 <input type="text" class="text" value="4">
+                 &nbsp;
+                <a href="#" onclick="FirstPage()">第一页</a> 
+                <a href="#" onclick="Previous() ">上一页</a>
+                <a href="#" onclick="next()">下一页</a> 
+                <a href="#" onclick="last()">最后一页</a> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/home.js"></script>
+<script src="js/list.js"></script>
+<script>
+    FirstPage()
+</script>
